@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="maincontainer flexbox">
+
+      <section class="nav">
+        <div class="header flexbox">
+          <h1>提醒事项</h1>
+          <div id="main-drawers">
+            <div id="drawer-today" class="drawer-today-focus">
+              <div class="drawer-name">今天</div>
+              <h1 class="drawer-number">3</h1>
+            </div>
+            <div id="drawer-plan" class="drawer-default">
+              <div class="drawer-name">计划</div>
+              <h1 class="drawer-number">20</h1>
+            </div>
+            <div id="drawer-all" class="drawer-default">
+              <div class="drawer-name">全部</div>
+              <h1 class="drawer-number">35</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="folder-list">
+          <div class="folder-list-container">
+                <div class="list-label">
+                    <h4>我的列表</h4>
+                </div>
+                <div class="folders">
+
+                </div>
+          </div>   
+        </div>
+
+        <div class="bottom-fuction">
+          <div id="add-folder-icon">
+                <div class="add-icon">
+                    <img id="add-list" class="add-btn" src="icon/add-default.png" alt="addicon">
+                </div>
+                <p>添加列表</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- todo list main part -->
+      <section class="list">
+        <div class="top flexbox">
+            <h1 class="list-title">今天</h1>
+        </div>
+        <!-- core list of items -->
+        <div id="task-list">
+            <div id="task-area">
+            </div>
+        </div>
+        <!-- add task button and popup widget -->
+
+        <div class="bottom-fuction b-f-right">
+            <div id="add-task-icon">
+                <div class="add-icon">
+                    <img id="add-tsk" class="add-btn" src="icon/add-default.png" alt="addicon">
+                </div>
+                <p>添加事项</p>
+            </div>
+        </div>
+
+        <div class="popup-addtask">
+            <form id="add-task">
+                <div class="control-tab">
+                    <div id = "btn-submit" class = "postIcon"></div>
+                    <div id = "btn-close" class = "postIcon"></div>
+                </div>
+                <label for="brief">摘要</label>
+                <br>
+                <input class="input-text" id="brief" name="brief" type="text" value="例如，今天上午11点与张三见面。" maxlength="20" required>
+                <br>
+                <label for="detail">具体事宜</label>
+                <br>
+                <textarea class="input-text" id="detail" name="detail" type="text">请输入具体要做的事宜。</textarea>
+                <br>
+                <label for="time">什么时间执行此项工作？</label>
+                <br>
+                <select name="time" id="time">
+                    <option value="">选择时间</option>
+                    <option value="Today">今天</option>
+                    <option value="This week">本周</option>
+                    <option value="Next week"">下周</option>
+                    <option value="No limit">不设限</option>
+                </select>
+            </form>
+        </div>
+
+      </section>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>

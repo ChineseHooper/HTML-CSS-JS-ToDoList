@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.maincontainer{
+    /* 当一个flex Container 的 position 为 absolute, 需要指定其尺寸 */
+    position: absolute;
+    top: 0;
+}
+
+.flexbox{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.nav{
+    width: 30%;
+    background-color: rgb(245, 245, 245);
+}
+
+    .header{
+        height: 300px;
+        padding: 30px 20px 20px 20px;
+        flex-direction: column;
+    }
+
+        /*Lay out of the entire drawer section.*/
+        #main-drawers{
+            margin-top: 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap:10px
+        }
+            /* drawer spend 2 columns */
+            #drawer-all{
+                grid-column: span 2;
+            }
+
+        /* size & shape of drawers in common */
+        #main-drawers > div{
+            display: flex;
+            justify-content: space-between;
+            height: 95px;
+            padding: 10px 10px;
+            border-radius: 15px;
+        }
+
+        .drawer-number{
+            margin-right: 5px;
+        }
+
+        /* states of the drawers - default */
+
+        .drawer-default{
+            background-color: rgb(210, 216, 224);
+        }
+
+        /* states of the drawers - focus */
+        .drawer-today-focus{
+            background-color:rgb(55, 108, 255);
+            color: white;
+        }
+
+        .drawer-plan-focus{
+            background-color:rgb(253, 98, 37);
+            color: white;
+        }
+
+        .drawer-all-focus{
+            background-color:rgb(104, 108, 119);
+            color: white;
+        }
+    
+    /* folder - list */
+    .folder-list{
+        height: calc(100% - 380px);
+        padding: 0 20px;
+        overflow:scroll;
+    }
+
+    /* add folder function */
+    .bottom-fuction{
+        height:80px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    #add-folder-icon,
+    #add-task-icon {
+        display: flex;
+        align-items: center;
+        color: rgb(104, 108, 119);
+    }
+
+    #add-folder-icon > p,
+    #add-task-icon > p{
+        margin-left: 12px;
+    }
+
+    .add-icon{
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+    }
+        .add-btn{
+            width: 100%;
+            object-position: center;
+            object-fit: cover;
+        }
+
+
+/*------------------------------------------------------ list-section */
+
+.list{
+    width: 70%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 2px 1px rgb(217, 224, 233);
+}
+
+.top{
+    height: 100px;
+    padding: 0 20px;
+    /* background-color: violet; */
+    align-items: center;
+    font-size: 2em;
+}
+
+    .list-title{
+        color:rgb(55, 108, 255)
+    }
+
+#task-list{
+    height: calc(100% - 180px);
+    overflow: scroll;
+}
+    /* 设置任务单元所需要的样式类 */
+    .task-item {
+        display: flex;
+        align-items: center;
+        height: 80px;
+        width: 100%;
+    }
+
+    .task-item :hover{
+        background-color: rgb(230, 235, 241);
+    }
+    
+
+    .task-item > div{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        padding: 12px 25px;
+    }
+
+      .task-item .text {
+        float: left;
+        margin-left: 10px;
+        font-size: 13px;
+        line-height: 14px;
+        cursor: pointer;
+      }
+
+        .brief{
+            font-weight: normal;
+            margin-bottom: .5em;
+        }
+
+        .detail{
+            color: dimgray; 
+            margin-bottom: .5em;
+        }
+
+        .time{
+            color: dimgray; 
+            font-size: 1em;
+        }
+
+      .task-item .button {
+        position: relative;
+        z-index: 2;
+        box-sizing: border-box;
+        float: left;
+        width: 20px;
+        height: 20px;
+        background-color: #ffffff00;
+        border: 1px solid rgb(85, 85, 85);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.2s ease-out 0.2s;
+      }
+
+      .task-item input {
+        display: none;
+      }
+
+      .task-item input:checked ~ .text {
+        color: #c8d4d9;
+      }
+
+      .task-item input:checked ~ .button {
+        transition: all 0.2s ease-in;
+        transform: scale(0.2);
+        border: none;
+        background-color: #c8d4d9;
+      }
+
+
+/* Add Task button */
+.b-f-right{
+    justify-content: flex-end;
+}
+
+/* Add task pop up window ----------------------------------- */
+
+.popup-addtask{
+    position: absolute;
+    bottom: 0px;
+    right: -380px;
+    width: 380px;
+    height: 95%;
+    border-radius: 25px 0 0 0;
+    padding: 25px 30px 25px 25px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 10px 10px 20px 10px rgb(182, 182, 182);
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s ease-in-out;
+}
+
+.popup-translate{
+    transition: 0.3s ease-in-out;
+    right: 0;
+}
+
+.control-tab{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.postIcon{
+    width: 28px;
+    height: 28px;
+}
+
+#btn-submit{
+    background-size: 28px 28px;
+    background-image: url(icon/post-default.png);
+}
+
+#btn-close{
+    background-size: 16px 16px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(icon/close-default.png);
+}
+
+
+.input-text{
+    margin-bottom: 20px;
+    width: 100%;
+    border-style: none;
+    border-color: #ffffff00;
+    outline: none;
+    font-size: 1.3em;
+    color: rgb(110, 117, 126);
+    transition: 0.2s ease-in-out;
+}
+
+.brief-transform{
+    padding: 5px;
+    color: black;
+    border-bottom-style: solid;
+    border-bottom-width: medium;
+    border-bottom-color: rgb(55, 108, 255);
+    transition: 0.2s ease-in-out;
+}
+
+.detail-transform{
+    padding: 5px;
+    color: black;
+    border-style: solid;
+    border-width: medium;
+    border-color: rgb(55, 108, 255);
+    transition: 0.2s ease-in-out;
+}
+
+#add-task label{
+    color: rgb(173, 178, 185);
+    font-size: 1em;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+#add-task button{
+    border-style: none;
+}
+
+#brief{
+    height: 50px;
+}
+
+#detail{
+    height: 300px;
+    resize: none;
+    border-radius: 6px;
+}
+
+#time{
+    width: 100%;
+    height: 36px;
+    border-style: none;
+    outline: none;
+    color: rgb(110, 117, 126);
+}
